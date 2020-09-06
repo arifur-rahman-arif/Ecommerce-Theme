@@ -1,0 +1,15 @@
+{
+    "name": "user/online-store",
+    "description": "This is a ecommerc wordpress theme fully supported by woocommerce",
+    "type": "project",
+    "authors": [{
+        "name": "Arif32-dev",
+        "email": "dragonwarrior062@gmail.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "OS\\Includes\\": "Includes/"
+        }
+    }
+}
