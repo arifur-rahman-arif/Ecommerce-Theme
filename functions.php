@@ -14,8 +14,14 @@ class OS_Function {
     }
     public function include_class() {
         require_once OS_Base_Path . 'vendor/autoload.php';
-        new \OS\Includes\Classes\Add_Page;
+
+        /* Registering all assets files */
         new \OS\Includes\Classes\Enqueue_Files;
+
+        /* Adding page when theme is activated */
+        new \OS\Includes\Classes\Add_Page;
+
+        /* Configuring theme support for this theme */
         new \OS\Includes\Classes\Theme_Support;
     }
 }

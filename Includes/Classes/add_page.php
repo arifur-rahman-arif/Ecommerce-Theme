@@ -24,9 +24,12 @@ class Add_Page {
         ];
     }
     public static function page_info() {
+        /* pages that will be created */
         $pages = [
             'Home',
             'Blog',
+            'Contact',
+            'Account',
             'Login',
             'Sign Up',
         ];
@@ -35,9 +38,13 @@ class Add_Page {
         }
     }
     public static function create_page(string $page) {
-        if (get_page_by_title($page)) {
+        /* if page exists and page status == trash then update the page */
+        if (get_page_by_title($page) && get_post_status(get_page_by_title($page)->ID) == 'trash') {
             wp_update_post(self::post_arr($page, get_page_by_title($page)->ID));
-        } else {
+        }
+
+        /* if page don't exists then create the page */
+        if (get_page_by_title($page) == null) {
             wp_insert_post(self::post_arr($page, 0), true);
         }
     }
