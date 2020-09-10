@@ -2,8 +2,8 @@
 
 namespace OS\Includes\Classes;
 
-class Nav_Menu {
-    private static $parent_item_db_id;
+class Admin_Nav_Menu {
+    private static $parent_item_db_id = 0;
     public function __construct() {
         add_action('after_setup_theme', [$this, 'setting_menu_to_nav_structure'], 12);
     }
@@ -17,42 +17,32 @@ class Nav_Menu {
             [
                 'title' => get_page_by_title('Shop') ? 'Shop' : false,
                 'url' => home_url('/'),
-                'is_parent_menu' => false
+                'is_parent_menu' => false,
             ],
             [
                 'title' => get_page_by_title('Blog') ? 'Blog' : false,
                 'url' => home_url('/'),
-                'is_parent_menu' => false
+                'is_parent_menu' => false,
             ],
             [
                 'title' => get_page_by_title('Account') ? 'Account' : false,
-                'url' => home_url('/'),
-                'is_parent_menu' => true
+                'url' => home_url('/#'),
+                'is_parent_menu' => true,
             ],
             [
                 'title' => get_page_by_title('My Account') ? 'My Account' : false,
                 'url' => home_url('/'),
-                'is_parent_menu' => false
+                'is_parent_menu' => false,
             ],
             [
                 'title' => get_page_by_title('Cart') ? 'Cart' : false,
                 'url' => home_url('/'),
-                'is_parent_menu' => false
-            ],
-            [
-                'title' => get_page_by_title('Login') ? 'Login' : false,
-                'url' => home_url('/'),
-                'is_parent_menu' => false
-            ],
-            [
-                'title' => get_page_by_title('Sign Up') ? 'Sign Up' : false,
-                'url' => home_url('/'),
-                'is_parent_menu' => false
+                'is_parent_menu' => false,
             ],
         ];
         return $menus;
     }
-    public  function setting_menu_to_nav_structure() {
+    public function setting_menu_to_nav_structure() {
         if (!current_theme_supports('menus')) {
             return false;
         }
@@ -63,7 +53,9 @@ class Nav_Menu {
         $menu = wp_get_nav_menu_object($menu_name);
         if ($menu == false) {
             $menu_id = wp_create_nav_menu($menu_name);
-            self::creating_menu($menu_id);
+            if (is_int($menu_id)) {
+                self::creating_menu($menu_id);
+            }
         }
     }
     public static function creating_menu($menu_id) {
@@ -75,12 +67,13 @@ class Nav_Menu {
                 }
                 if ($page['is_parent_menu']) {
                     self::$parent_item_db_id = self::create_nav_menu_item($menu_id, $page);
+                    continue;
                 }
                 if ($page['title'] == 'My Account' || $page['title'] == 'Cart') {
                     self::create_nav_menu_item($menu_id, $page, self::$parent_item_db_id);
-                } else {
-                    self::create_nav_menu_item($menu_id, $page);
+                    continue;
                 }
+                self::create_nav_menu_item($menu_id, $page);
             }
             self::set_menu_location($menu_id);
         }

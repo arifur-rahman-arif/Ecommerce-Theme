@@ -9,7 +9,10 @@ class Theme_Support {
         $this->including_other_func();
     }
     public function defer_parsing_of_js($url) {
-        if (FALSE === strpos($url, '.js')) return $url;
+        if (false === strpos($url, '.js')) {
+            return $url;
+        }
+
         return "$url' defer ";
     }
     public function theme_init_hooks() {
@@ -20,7 +23,7 @@ class Theme_Support {
     public static function register_menus() {
         register_nav_menus(array(
             'header_menu' => __('Header Menu'),
-            'footer_menu'  => __('Footer Menu')
+            'footer_menu' => __('Footer Menu'),
         ));
     }
     public static function theme_support() {
@@ -36,6 +39,6 @@ class Theme_Support {
         add_theme_support('woocommerce');
     }
     public function including_other_func() {
-        new \OS\Includes\Classes\Nav_Menu;
+        new \OS\Includes\Classes\Admin_Nav_Menu;
     }
 }

@@ -23,6 +23,9 @@ class OS_Function {
 
         /* Configuring theme support for this theme */
         new \OS\Includes\Classes\Theme_Support;
+
+        /* Configuring theme support for this theme */
+        new \OS\Includes\Hooks\Custom_Hook;
     }
 }
 new OS_Function;

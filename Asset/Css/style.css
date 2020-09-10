@@ -341,7 +341,7 @@ ol {
 	position: relative;
 }
 
-.header__menu ul li.active a:after {
+.header__menu ul li.current-menu-item a:after {
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
 	transform: scale(1);
@@ -353,7 +353,7 @@ ol {
 	transform: scale(1);
 }
 
-.header__menu ul li:hover .dropdown {
+.header__menu ul li:hover .sub-menu {
 	top: 27px;
 	opacity: 1;
 	visibility: visible;
@@ -363,7 +363,7 @@ ol {
 	margin-right: 0;
 }
 
-.header__menu ul li .dropdown {
+.header__menu ul li .sub-menu {
 	position: absolute;
 	left: 0;
 	top: 56px;
@@ -379,12 +379,12 @@ ol {
 	transition: all, 0.3s;
 }
 
-.header__menu ul li .dropdown li {
+.header__menu ul li .sub-menu li {
 	display: block;
 	margin-right: 0;
 }
 
-.header__menu ul li .dropdown li a {
+.header__menu ul li .sub-menu li a {
 	font-size: 14px;
 	color: #ffffff;
 	font-weight: 400;
@@ -392,7 +392,7 @@ ol {
 	text-transform: capitalize;
 }
 
-.header__menu ul li .dropdown li a:after {
+.header__menu ul li .sub-menu li a:after {
 	display: none;
 }
 
