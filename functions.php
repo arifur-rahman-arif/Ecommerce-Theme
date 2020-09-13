@@ -26,6 +26,9 @@ class OS_Function {
 
         /* Configuring theme support for this theme */
         new \OS\Includes\Hooks\Custom_Hook;
+
+        /* Configuring theme support for this theme */
+        new \OS\Includes\Hooks\Woocommerce\Woocommerce_Modifiying_Hooks;
     }
 }
 new OS_Function;

@@ -11,7 +11,7 @@
     <?php wp_head() ?>
 </head>
 
-<body>
+<body <?php is_home() ? '' : body_class() ?>>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
