@@ -7,6 +7,44 @@ use OS\Includes\Classes\Nav_Walker_Class;
 class Custom_Hook {
     public function __construct() {
         add_action('os_nav_menu', [$this, 'nav_menu']);
+        add_action('os_product_price', [$this, 'os_product_price'], 10, 1);
+        add_action('os_is_product_on_sale', [$this, 'sale_product_check'], 10, 1);
+        add_action('os_product_label', [$this, 'product_label'], 10, 1);
+    }
+    public function product_label($product) {
+        if ($product->get_sale_price()) {
+            echo __('<div class="label">Sale</div>', 'OS');
+        } else {
+            $newness_days = 10;
+            $created = strtotime($product->get_date_created());
+            if ((time() - (60 * 60 * 24 * $newness_days)) < $created) {
+                echo  __('<div class="label new">New</div>', 'OS');
+            } else {
+                echo '';
+            }
+        }
+    }
+    public function sale_product_check($product) {
+        if ($product->get_sale_price()) {
+            echo 'sale';
+        } else {
+            $newness_days = 10;
+            $created = strtotime($product->get_date_created());
+            if ((time() - (60 * 60 * 24 * $newness_days)) < $created) {
+                echo  esc_html__('New', 'OS');
+            } else {
+                echo '';
+            }
+        }
+    }
+    public function os_product_price($product) {
+        if ($product->get_price_html()) {
+            if ($product->get_sale_price()) {
+                echo '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' . $product->get_sale_price()  . ' <span>' . get_woocommerce_currency_symbol() . ' ' . $product->get_regular_price() . '</span></div>';
+            } else {
+                echo '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' .  $product->get_price() . '</div>';
+            }
+        }
     }
     public function nav_menu() {
         $arg = [
