@@ -40,9 +40,17 @@ class Custom_Hook {
     public function os_product_price($product) {
         if ($product->get_price_html()) {
             if ($product->get_sale_price()) {
-                echo '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' . $product->get_sale_price()  . ' <span>' . get_woocommerce_currency_symbol() . ' ' . $product->get_regular_price() . '</span></div>';
+                echo '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' . number_format($product->get_sale_price(), 2)  . ' <span>' . get_woocommerce_currency_symbol() . ' ' . number_format($product->get_regular_price(), 2) . '</span></div>';
+            } elseif ($product->get_type() == 'variable') {
+                // print_r($product->get_variation_prices()['price']);
+                echo '<div class="product__price">
+                    ' . get_woocommerce_currency_symbol() . ' '
+                    . min($product->get_variation_prices()['price']) . ' &#126; '
+                    . get_woocommerce_currency_symbol() . ' '
+                    . max($product->get_variation_prices()['price']) . '
+                    </div>';
             } else {
-                echo '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' .  $product->get_price() . '</div>';
+                echo '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' .  number_format($product->get_price(), 2) . '</div>';
             }
         }
     }

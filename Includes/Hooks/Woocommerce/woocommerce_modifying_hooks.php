@@ -18,11 +18,9 @@ class Woocommerce_Modifiying_Hooks {
         remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
         /* Removing wc catalog_ordering */
         remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
-        /* Removing wc starting container tag so that I can modify the tag by action hook*/
+        /* Removing wc starting container tag*/
         remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-        /* Removing wc breadcumb */
-        remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
-        /* Removing wc ending container tag so that I can modify the tag by action hook*/
+        /* Removing wc ending container tag*/
         remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
         /* Removing wc product title so that I can modify the title by action hook */
         remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
@@ -35,29 +33,10 @@ class Woocommerce_Modifiying_Hooks {
         add_filter('loop_shop_per_page', [get_called_class(), 'products_per_page'], 20);
     }
     public static function modify_action_hooks() {
-        add_action('woocommerce_before_main_content', [get_called_class(), 'woocommerce_output_content_wrapper'], 5);
-        add_action('woocommerce_after_main_content', [get_called_class(), 'woocommerce_output_content_wrapper_end'], 5);
         add_action('woocommerce_shop_loop_item_title', [get_called_class(), 'woocommerce_template_loop_product_title'], 10);
     }
     public static function woocommerce_template_loop_product_title() {
         echo '<h6 class="' . esc_attr(apply_filters('woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title')) . '"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h6>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-    }
-
-    public static function woocommerce_output_content_wrapper() {
-        echo '
-                 ' . woocommerce_breadcrumb() . '
-                <section class="shop spad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-9 col-md-9">
-                                ';
-    }
-    public static function woocommerce_output_content_wrapper_end() {
-        echo '
-                </div>
-                    </div>
-                        </div>
-                                </section>';
     }
     public static function woocommerce_show_page_title($val) {
         $val = false;
@@ -77,7 +56,6 @@ class Woocommerce_Modifiying_Hooks {
             'home'        => 'Home',
         );
     }
-
     public static function products_per_page($products) {
         $products = 9;
         return $products;

@@ -1325,15 +1325,15 @@ ol {
 	padding-bottom: 80px;
 }
 
-.sidebar__categories {
+.sidebar {
 	margin-bottom: 50px;
 }
 
-.sidebar__categories .section-title {
+.sidebar .section-title {
 	margin-bottom: 35px;
 }
 
-.sidebar__categories .section-title h4 {
+.sidebar .section-title h4 {
 	font-size: 18px;
 }
 

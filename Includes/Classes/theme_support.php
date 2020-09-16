@@ -6,6 +6,7 @@ class Theme_Support {
     public function __construct() {
         apply_filters('clean_url', [$this, 'defer_parsing_of_js'], 11, 1);
         add_action('after_setup_theme', [$this, 'theme_init_hooks']);
+        add_action('widgets_init', [$this, 'register_sidebars']);
         $this->including_other_func();
     }
     public function defer_parsing_of_js($url) {
@@ -40,6 +41,17 @@ class Theme_Support {
         // add_theme_support('wc-product-gallery-zoom');
         // add_theme_support('wc-product-gallery-lightbox');
         // add_theme_support('wc-product-gallery-slider');
+    }
+    public function register_sidebars() {
+        register_sidebar(array(
+            'name'          => __('Shop Page Sidebar', 'OS'),
+            'id'            => 'shop-sidebar',
+            'description'   => __('This is a shop sidebar area. Anything is here will be outputted in shop page sidebar', 'textdomain'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s sidebar">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<div class="section-title"><h4 class="widgettitle">',
+            'after_title'   => '</h4></div>',
+        ));
     }
     public function including_other_func() {
         new \OS\Includes\Classes\Admin_Nav_Menu;
