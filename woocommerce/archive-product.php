@@ -48,15 +48,7 @@ do_action('woocommerce_before_main_content');
 <section class="shop spad">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3 col-md-3">
-				<div class="shop__sidebar">
-					<?php
-					if (is_active_sidebar('shop-sidebar')) {
-						dynamic_sidebar('shop-sidebar');
-					}
-					?>
-				</div>
-			</div>
+			<?php get_sidebar() ?>
 			<div class="col-lg-9 col-md-9">
 				<?php
 				if (woocommerce_product_loop()) {

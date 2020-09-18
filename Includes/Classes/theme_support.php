@@ -38,9 +38,9 @@ class Theme_Support {
         add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script'));
         add_theme_support('customize-selective-refresh-widgets');
         add_theme_support('woocommerce');
-        // add_theme_support('wc-product-gallery-zoom');
-        // add_theme_support('wc-product-gallery-lightbox');
-        // add_theme_support('wc-product-gallery-slider');
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
     }
     public function register_sidebars() {
         register_sidebar(array(

@@ -22,8 +22,10 @@ class Enqueue_Files {
         wp_enqueue_style('OS_css', get_template_directory_uri() .  '/Asset/Css/style.css', [], OS_Version, 'all');
 
         /* Theme Javascript */
-        wp_deregister_script('jquery');
-        wp_enqueue_script('OS_jquery', '//code.jquery.com/jquery-3.5.1.min.js', [], OS_Version, true);
+        // wp_enqueue_script('OS_jquery', '//code.jquery.com/jquery-3.5.1.min.js', [], OS_Version, true);
+        wp_enqueue_script('jquery');
+        wp_deregister_script('wc-add-to-cart');
+        wp_dequeue_script('wc-add-to-cart');
         wp_enqueue_script('OS_bootstrap', get_template_directory_uri() .  '/Asset/Scripts/bootstrap.min.js', [], OS_Version, true);
         wp_enqueue_script('OS_magnific_popup', get_template_directory_uri() .  '/Asset/Scripts/jquery.magnific-popup.min.js', [], OS_Version, true);
         wp_enqueue_script('OS_jquery_ui', get_template_directory_uri() .  '/Asset/Scripts/jquery-ui.min.js', [], OS_Version, true);
@@ -33,5 +35,6 @@ class Enqueue_Files {
         wp_enqueue_script('OS_owl_carosoul', get_template_directory_uri() .  '/Asset/Scripts/owl.carousel.min.js', [], OS_Version, true);
         wp_enqueue_script('OS_niceScroll', get_template_directory_uri() .  '/Asset/Scripts/jquery.nicescroll.min.js', [], OS_Version, true);
         wp_enqueue_script('OS_js', get_template_directory_uri() .  '/Asset/Scripts/main.js', [], OS_Version, true);
+        wp_enqueue_script('wc-add-to-cart', get_template_directory_uri() .  '/Asset/Scripts/woocommerce-ajax.js', ['jquery', 'jquery-blockui'], OS_Version, true);
     }
 }

@@ -29,6 +29,9 @@ class OS_Function {
 
         /* Configuring theme support for this theme */
         new \OS\Includes\Hooks\Woocommerce\Woocommerce_Modifiying_Hooks;
+
+        /* Ajax add to cart button functionality */
+        new \OS\Includes\Backend\Ajax_Add_To_Cart;
     }
 }
 new OS_Function;
