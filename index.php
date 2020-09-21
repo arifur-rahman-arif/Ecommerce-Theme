@@ -42,7 +42,7 @@ get_header('header.php') ?>
                             <?php if ($count % 2) { ?>
                                 <div class="blog__item">
                                     <?php if (has_post_thumbnail()) { ?>
-                                        <div class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
+                                        <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
                                         <h6><a href="#"><?php echo get_the_title() ?></a></h6>
@@ -55,7 +55,7 @@ get_header('header.php') ?>
                             <?php } else { ?>
                                 <div class="blog__item">
                                     <?php if (has_post_thumbnail()) { ?>
-                                        <div class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
+                                        <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
                                         <h6><a href="#"><?php echo get_the_title() ?></a></h6>
@@ -79,7 +79,7 @@ get_header('header.php') ?>
                             <?php if ($count % 2) { ?>
                                 <div class="blog__item">
                                     <?php if (has_post_thumbnail()) { ?>
-                                        <div class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
+                                        <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
                                         <h6><a href="#"><?php echo get_the_title() ?></a></h6>
@@ -92,7 +92,7 @@ get_header('header.php') ?>
                             <?php } else { ?>
                                 <div class="blog__item">
                                     <?php if (has_post_thumbnail()) { ?>
-                                        <div class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
+                                        <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
                                         <h6><a href="#"><?php echo get_the_title() ?></a></h6>
@@ -117,7 +117,7 @@ get_header('header.php') ?>
                             <?php if ($count % 2) { ?>
                                 <div class="blog__item">
                                     <?php if (has_post_thumbnail()) { ?>
-                                        <div class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
+                                        <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
                                         <h6><a href="#"><?php echo get_the_title() ?></a></h6>
@@ -130,7 +130,7 @@ get_header('header.php') ?>
                             <?php } else { ?>
                                 <div class="blog__item">
                                     <?php if (has_post_thumbnail()) { ?>
-                                        <div class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
+                                        <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
                                         <h6><a href="#"><?php echo get_the_title() ?></a></h6>

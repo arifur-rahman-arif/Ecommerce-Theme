@@ -18,6 +18,14 @@ class Custom_Hook {
         add_filter('get_search_form', [__CLASS__, 'modify_search_form']);
         /* Breadcumb for online-store theme */
         add_filter('os_breadcumb', [__CLASS__, 'theme_breadcumb']);
+        /* Single post catagory */
+        add_action('os_post_cat', [__CLASS__, 'post_cat'], 10, 1);
+        /* Single post catagory */
+        add_action('os_post_tag', [__CLASS__, 'post_tag'], 10, 1);
+        /* Single post previous post link btn */
+        add_action('os_prev_post_link', [__CLASS__, 'prev_post_link']);
+        /* Single post next post link btn */
+        add_action('os_next_post_link', [__CLASS__, 'next_post_link']);
     }
     public function product_label($product) {
         if ($product->get_sale_price()) {
@@ -141,6 +149,35 @@ class Custom_Hook {
                     echo get_the_title();
                 }
             }
+        }
+    }
+    public function post_cat($id) {
+        // if(has_category())
+        $cat = get_the_category($id);
+        if ($cat) {
+            foreach ($cat as $catagory) {
+                echo '<a href="' . get_category_link($catagory->term_id) . '" class="tip">' . $catagory->name . '</a>' . ' ';
+            }
+        }
+    }
+    public function post_tag($id) {
+        $tags = get_the_tags($id);
+        if ($tags) {
+            foreach ($tags as $tag) {
+                echo '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>';
+            }
+        }
+    }
+    public function prev_post_link() {
+        $previous = get_previous_post();
+        if ($previous) {
+            echo '<a href="' . get_permalink($previous) . '"><i class="fa fa-angle-left"></i> Previous posts</a>';
+        }
+    }
+    public function next_post_link() {
+        $next = get_next_post();
+        if ($next) {
+            echo '<a href="' . get_permalink($next) . '">Next posts <i class="fa fa-angle-right"></i></a>';
         }
     }
 }
