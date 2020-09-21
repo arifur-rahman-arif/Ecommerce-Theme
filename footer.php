@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-1.jpg">
+                <div class="instagram__item set-bg" data-setbg="<?php echo get_template_directory_uri() . '/Asset/Images/instagram/insta-1.jpg' ?>">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-2.jpg">
+                <div class="instagram__item set-bg" data-setbg="<?php echo get_template_directory_uri() . '/Asset/Images/instagram/insta-2.jpg' ?>">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-3.jpg">
+                <div class="instagram__item set-bg" data-setbg="<?php echo get_template_directory_uri() . '/Asset/Images/instagram/insta-3.jpg' ?>">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-4.jpg">
+                <div class="instagram__item set-bg" data-setbg="<?php echo get_template_directory_uri() . '/Asset/Images/instagram/insta-4.jpg' ?>">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-5.jpg">
+                <div class="instagram__item set-bg" data-setbg="<?php echo get_template_directory_uri() . '/Asset/Images/instagram/insta-5.jpg' ?>">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-6.jpg">
+                <div class="instagram__item set-bg" data-setbg="<?php echo get_template_directory_uri() . '/Asset/Images/instagram/insta-6.jpg' ?>">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -110,9 +110,7 @@
 <div class="search-model">
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
+        <?php get_search_form() ?>
     </div>
 </div>
 <!-- Search End -->

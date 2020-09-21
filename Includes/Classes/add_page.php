@@ -5,6 +5,7 @@ namespace OS\Includes\Classes;
 class Add_Page {
     public function __construct() {
         add_action('after_switch_theme', [$this, 'add_page']);
+        add_action('init', [$this, 'set_page_states_filter_hook']);
     }
     public function add_page() {
         self::page_info();
@@ -47,5 +48,23 @@ class Add_Page {
         if (get_page_by_title($page) == null) {
             wp_insert_post(self::post_arr($page, 0), true);
         }
+    }
+    public function set_page_states_filter_hook() {
+        add_filter('display_post_states', [$this, 'set_page_states'], 10, 2);
+    }
+    public function set_page_states($post_states, $post) {
+        if (get_page_by_title('Contact')->ID === $post->ID) {
+            $post_states[] = __('Contact Page', 'OS');
+        }
+        if (get_page_by_title('Account')->ID === $post->ID) {
+            $post_states[] = __('Account Page', 'OS');
+        }
+        if (get_page_by_title('Login')->ID === $post->ID) {
+            $post_states[] = __('Login Page', 'OS');
+        }
+        if (get_page_by_title('Sign Up')->ID === $post->ID) {
+            $post_states[] = __('Sign Up Page', 'OS');
+        }
+        return $post_states;
     }
 }

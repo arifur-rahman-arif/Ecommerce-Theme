@@ -1,35 +1,4 @@
-/******************************************************************
-  Template Name: Ashion
-  Description: Ashion ecommerce template
-  Author: Colorib
-  Author URI: https://colorlib.com/
-  Version: 1.0
-  Created: Colorib
-******************************************************************/
 
-/*------------------------------------------------------------------
-[Table of contents]
-
-1.  Template default CSS
-	1.1	Variables
-	1.2	Mixins
-	1.3	Flexbox
-	1.4	Reset
-2.  Helper Css
-3.  Header Section
-4.  Categories Section
-5.  Product Section
-6.  Banner Section
-7.  Countdown Section
-8.  Instagram
-9.  Contact
-10.  Footer Style
--------------------------------------------------------------------*/
-
-/*----------------------------------------*/
-
-/* Template default CSS
-/*----------------------------------------*/
 
 html,
 body {
@@ -3725,6 +3694,7 @@ ol {
 		font-size: 24px;
 	}
 }
+/* Woocommerce css rule overridding starts */
 .breadcrumb__links a {
 	font-size: 15px;
 	font-weight: 500;
@@ -3753,9 +3723,104 @@ ol {
 	-o-transition: all 0.4s ease 0.2s;
 }
 .woocommerce-error, .woocommerce-info, .woocommerce-message {
-    border-top: 3px solid #ca1515;
+	border-top: 3px solid #ca1515;
+	margin-top: 20px;
 }
 .woocommerce-message::before {
     content: "\e015";
     color:#ca1515;
+}
+.woocommerce .widget_price_filter .price_slider_amount .button{
+	font-size: 14px;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: inline-block;
+    padding: 5px 16px 5px 24px;
+    border: 2px solid #ff0000;
+    position: absolute;
+    right: 0;
+    border-radius: 2px;
+}
+#woocommerce_price_filter-3 > form > div > div.price_slider_amount > div.price_label{
+	position: relative;
+    left: -101px;
+    top: -1px;
+}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
+		background-color: #ca1515;
+		color: #ca1515;
+}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range {
+		background-color: #ca1515;
+}
+.woocommerce .widget_rating_filter ul li a {
+		color: #ca1515;
+
+}
+.select2-results__option[aria-selected], .select2-results__option[data-selected] {
+	background-color:white;
+	color: black;
+}
+#woocommerce_products-2 > ul > li > a > span{
+	color: #ca1515;
+}
+.woocommerce .star-rating {
+	color:#ca1515;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
+    background-color: #ca1515 !important;
+    color: #fff;
+}
+.woocommerce .widget_shopping_cart .buttons a, .woocommerce.widget_shopping_cart .buttons a {
+   	font-size: 14px;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: inline-block;
+    border: 2px solid #ff0000;
+    right: 0;
+	border-radius: 2px;
+	padding: 10px;
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+   	padding: 9px 17px;
+	margin-left: 15px;
+	background-color: unset;
+	border: 2px solid #ca1515;
+	color:  #ca1515;
+	cursor: pointer;
+}
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+    background-color: #ca1515;
+    color: #fff;
+}
+.woocommerce div.product p.price, .woocommerce div.product span.price {
+    color: #ca1515;
+}
+.woocommerce div.product .woocommerce-tabs .panel {
+    margin: 5px 20px;
+}
+.woocommerce p.stars a {
+    color: #ca1515;
+}
+.woocommerce #review_form #respond .form-submit input {
+	color: #ca1515;
+	border: 2px solid #ca1515;
+	padding: 8px 15px;
+}
+.woocommerce #review_form #respond textarea {
+    border: 1px solid #ca1515;
+}
+.woocommerce #reviews #comments ol.commentlist li .comment-text {
+    border: 1px solid  #ca1515;
+}
+.related.products > h2{
+	margin: 4px 20px;
+}
+.related.products > .row {
+	margin: 0 20px;
 }

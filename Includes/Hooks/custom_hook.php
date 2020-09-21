@@ -6,10 +6,18 @@ use OS\Includes\Classes\Nav_Walker_Class;
 
 class Custom_Hook {
     public function __construct() {
+        /* Hook to display nav menu */
         add_action('os_nav_menu', [$this, 'nav_menu']);
+        /* Hook to display product price */
         add_action('os_product_price', [$this, 'os_product_price'], 10, 1);
+        /* Hook to display Sale text on product-archive page */
         add_action('os_is_product_on_sale', [$this, 'sale_product_check'], 10, 1);
+        /* Hook for product label */
         add_action('os_product_label', [$this, 'product_label'], 10, 1);
+        /* Modifying search form */
+        add_filter('get_search_form', [__CLASS__, 'modify_search_form']);
+        /* Breadcumb for online-store theme */
+        add_filter('os_breadcumb', [__CLASS__, 'theme_breadcumb']);
     }
     public function product_label($product) {
         if ($product->get_sale_price()) {
@@ -69,7 +77,7 @@ class Custom_Hook {
             <div class="row">
                     <div class="col-xl-3 col-lg-2">
                         <div class="header__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="' . get_template_directory_uri() . '/Asset/Images/logo.png' . '" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-7">
@@ -102,5 +110,37 @@ class Custom_Hook {
             </div>';
 
         return $items;
+    }
+    public function modify_search_form($form) {
+        $form = '';
+        $form .= '<form class="search-model-form" action="' . esc_url(home_url('/')) . '">';
+        $form .= '<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search here.....">';
+        $form .= '</form>';
+        return $form;
+    }
+    public function theme_breadcumb() {
+        global $post, $wp_query;
+        if (!is_front_page()) {
+            if (is_archive()) {
+                echo get_the_archive_title();
+            }
+            if (is_single()) {
+                echo get_the_title();
+            }
+            if (is_search()) {
+                echo get_search_query();
+            }
+            if (is_category()) {
+                single_cat_title();
+            }
+            if (is_home()) {
+                $page_for_posts_id = get_option('page_for_posts');
+                if ($page_for_posts_id) {
+                    $post = get_page($page_for_posts_id);
+                    setup_postdata($post);
+                    echo get_the_title();
+                }
+            }
+        }
     }
 }
