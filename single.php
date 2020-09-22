@@ -23,7 +23,9 @@
                 <?php while (have_posts()) {
                     the_post() ?>
                     <div class="col-lg-8 col-md-8">
+
                         <div class="blog__details__content">
+
                             <div class="blog__details__item">
                                 <?php if (has_post_thumbnail()) { ?>
                                     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" alt="">
@@ -38,12 +40,15 @@
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="blog__details__desc">
                                 <p><?php echo get_the_content() ?></p>
                             </div>
+
                             <div class="blog__details__tags">
                                 <?php do_action('os_post_tag', get_the_ID()) ?>
                             </div>
+
                             <div class="blog__details__btns">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 p-2">
@@ -59,61 +64,17 @@
                                 </div>
                             </div>
                             <div class="blog__details__comment">
-                                <h5>3 Comment</h5>
-                                <a href="#" class="leave-btn">Leave a comment</a>
-                                <div class="blog__comment__item">
-                                    <div class="blog__comment__item__pic">
-                                        <img src="img/blog/details/comment-1.jpg" alt="">
-                                    </div>
-                                    <div class="blog__comment__item__text">
-                                        <h6>Brandon Kelley</h6>
-                                        <p>Duis voluptatum. Id vis consequat consetetur dissentiet, ceteros commune perpetua
-                                            mei et. Simul viderer facilisis egimus tractatos splendi.</p>
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i> Seb 17, 2019</li>
-                                            <li><i class="fa fa-heart-o"></i> 12</li>
-                                            <li><i class="fa fa-share"></i> 1</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="blog__comment__item blog__comment__item--reply">
-                                    <div class="blog__comment__item__pic">
-                                        <img src="img/blog/details/comment-2.jpg" alt="">
-                                    </div>
-                                    <div class="blog__comment__item__text">
-                                        <h6>Brandon Kelley</h6>
-                                        <p>Consequat consetetur dissentiet, ceteros commune perpetua mei et. Simul viderer
-                                            facilisis egimus ulla mcorper.</p>
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i> Seb 17, 2019</li>
-                                            <li><i class="fa fa-heart-o"></i> 12</li>
-                                            <li><i class="fa fa-share"></i> 1</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="blog__comment__item">
-                                    <div class="blog__comment__item__pic">
-                                        <img src="img/blog/details/comment-3.jpg" alt="">
-                                    </div>
-                                    <div class="blog__comment__item__text">
-                                        <h6>Brandon Kelley</h6>
-                                        <p>Duis voluptatum. Id vis consequat consetetur dissentiet, ceteros commune perpetua
-                                            mei et. Simul viderer facilisis egimus tractatos splendi.</p>
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i> Seb 17, 2019</li>
-                                            <li><i class="fa fa-heart-o"></i> 12</li>
-                                            <li><i class="fa fa-share"></i> 1</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <?php comments_template() ?>
                             </div>
-                        </div>
-                    </div>
-                    <?php get_sidebar('blog') ?>
+                        </div><!-- blog__details__content end -->
+                    </div><!-- col-lg-8 col-md-8 end -->
                 <?php } ?>
+                <div class="col-lg-4 col-md-4">
+                    <?php get_sidebar('blog') ?>
+                </div>
             <?php } ?>
-        </div>
-    </div>
-</section>
+        </div><!-- row end -->
+    </div><!-- container end -->
+</section><!-- section end -->
 <!-- Blog Details Section End -->
 <?php get_footer('footer.php') ?>

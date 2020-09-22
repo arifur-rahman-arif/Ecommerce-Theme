@@ -2960,6 +2960,7 @@ ol {
 
 .blog__comment__item.blog__comment__item--reply {
 	padding-left: 115px;
+	    margin-top: 25px;
 }
 
 .blog__comment__item__pic {
@@ -3823,4 +3824,7 @@ ol {
 }
 .related.products > .row {
 	margin: 0 20px;
+}
+html {
+  scroll-behavior: smooth;
 }

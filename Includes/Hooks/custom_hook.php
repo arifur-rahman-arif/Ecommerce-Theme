@@ -3,6 +3,7 @@
 namespace OS\Includes\Hooks;
 
 use OS\Includes\Classes\Nav_Walker_Class;
+use OS\Includes\Classes\Comment_Walker_Class;
 
 class Custom_Hook {
     public function __construct() {
@@ -26,6 +27,8 @@ class Custom_Hook {
         add_action('os_prev_post_link', [__CLASS__, 'prev_post_link']);
         /* Single post next post link btn */
         add_action('os_next_post_link', [__CLASS__, 'next_post_link']);
+        /* Comment listing */
+        add_action('os_list_comment', [__CLASS__, 'list_comment']);
     }
     public function product_label($product) {
         if ($product->get_sale_price()) {
@@ -179,5 +182,15 @@ class Custom_Hook {
         if ($next) {
             echo '<a href="' . get_permalink($next) . '">Next posts <i class="fa fa-angle-right"></i></a>';
         }
+    }
+    public function list_comment() {
+        $arg = [
+            'format' => 'html5',
+            'walker' => new Comment_Walker_Class,
+            'style' => 'div',
+            'avatar_size' => 90,
+            'max_depth' => 2,
+        ];
+        wp_list_comments($arg);
     }
 }

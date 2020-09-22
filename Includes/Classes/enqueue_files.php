@@ -26,6 +26,7 @@ class Enqueue_Files {
         wp_enqueue_script('jquery');
         wp_deregister_script('wc-add-to-cart');
         wp_dequeue_script('wc-add-to-cart');
+        wp_enqueue_script('comment-reply');
         wp_enqueue_script('OS_bootstrap', get_template_directory_uri() .  '/Asset/Scripts/bootstrap.min.js', [], OS_Version, true);
         wp_enqueue_script('OS_magnific_popup', get_template_directory_uri() .  '/Asset/Scripts/jquery.magnific-popup.min.js', [], OS_Version, true);
         wp_enqueue_script('OS_jquery_ui', get_template_directory_uri() .  '/Asset/Scripts/jquery-ui.min.js', [], OS_Version, true);
