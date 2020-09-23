@@ -27,11 +27,11 @@ if (empty($product) || false === wc_get_loop_product_visibility($product->get_id
 ?>
 <div <?php wc_product_class('col-lg-4 col-md-6', $product); ?>>
 	<div class="product__item <?php do_action('os_is_product_on_sale', $product) ?>">
-		<div onclick="window.location='<?php echo get_the_permalink() ?>'" class="product__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url()  ?>">
+		<div class="product__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url()  ?>">
 			<?php do_action('os_product_label', $product) ?>
 			<ul class="product__hover">
 				<li><a href="<?php echo  get_the_post_thumbnail_url()  ?>" class="image-popup"><span class="arrow_expand"></span></a></li>
-				<li><a href="#"><span class="icon_heart_alt"></span></a></li>
+				<!-- <li><a href="#"><span class="icon_heart_alt"></span></a></li> -->
 				<li> <?php woocommerce_template_loop_add_to_cart() ?></li>
 			</ul>
 		</div>

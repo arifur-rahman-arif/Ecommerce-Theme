@@ -2676,6 +2676,8 @@ ol {
 .blog__sidebar__item ul li {
 	list-style: none;
 	line-height: 30px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .blog__sidebar__item ul li a {
@@ -2732,18 +2734,6 @@ ol {
 	display: block;
 }
 
-.blog__sidebar__tags a {
-	display: inline-block;
-	font-size: 13px;
-	color: #666666;
-	border: 1px solid #f2f2f2;
-	padding: 8px 14px 7px;
-	margin-right: 6px;
-	margin-bottom: 10px;
-	-webkit-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
-}
 
 .blog__sidebar__tags a:hover {
 	color: #111111;
@@ -3828,3 +3818,51 @@ ol {
 html {
   scroll-behavior: smooth;
 }
+#commentform {
+	margin-top: 20px;
+}
+.comment-form-comment > textarea{
+	border: 2px solid #ca1515;
+}
+#commentform p input {
+	border: 1px solid #ca1515;
+
+}
+.form-submit input {
+	background-color: white;
+	padding: 7px 14px;
+	font-weight: bold;
+	transition: all 0.6s ease-in-out;
+	-webkit-transition: all 0.6s ease-in-out;
+	-moz-transition: all 0.6s ease-in-out;
+	-ms-transition: all 0.6s ease-in-out;
+	-o-transition: all 0.6s ease-in-out;
+}
+.form-submit input:hover{
+	background-color: #ca1515;
+	color: white;
+}
+.comment-form-author> label, .comment-form-email> label, .comment-form-url> label{
+	margin-right: 5px;
+}
+ .comment-form-cookies-consent> label {
+	 margin-left: 5px;
+ }
+ #respond{
+	 margin-top: 15px;
+ }
+ #respond> #reply-title > small {
+	 margin-left: 10px;
+ }
+ .tagcloud a {
+	display: inline-block;
+	font-size: 13px !important;
+	color: #666666;
+	border: 1px solid #f2f2f2;
+	padding: 8px 14px 7px;
+	margin-right: 6px;
+	margin-bottom: 10px;
+	-webkit-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+ }

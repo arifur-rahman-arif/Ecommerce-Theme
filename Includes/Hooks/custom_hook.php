@@ -29,6 +29,10 @@ class Custom_Hook {
         add_action('os_next_post_link', [__CLASS__, 'next_post_link']);
         /* Comment listing */
         add_action('os_list_comment', [__CLASS__, 'list_comment']);
+        /* Filtering the comment form fields */
+        add_filter('comment_form_defaults', [__CLASS__, 'filter_comment_form_fields']);
+        /* Modify archive title for breadcumb */
+        add_filter('get_the_archive_title', [__CLASS__, 'modify_archive_title']);
     }
     public function product_label($product) {
         if ($product->get_sale_price()) {
@@ -141,15 +145,16 @@ class Custom_Hook {
             if (is_search()) {
                 echo get_search_query();
             }
-            if (is_category()) {
-                single_cat_title();
-            }
+            // if (is_category()) {
+            //     // single_cat_title();
+            //     echo 'hello';
+            // }
             if (is_home()) {
                 $page_for_posts_id = get_option('page_for_posts');
                 if ($page_for_posts_id) {
                     $post = get_page($page_for_posts_id);
                     setup_postdata($post);
-                    echo get_the_title();
+                    echo '<span>' . get_the_title() . '</span>';
                 }
             }
         }
@@ -189,8 +194,22 @@ class Custom_Hook {
             'walker' => new Comment_Walker_Class,
             'style' => 'div',
             'avatar_size' => 90,
-            'max_depth' => 2,
+            'max_depth' => 3,
         ];
         wp_list_comments($arg);
+    }
+    public function filter_comment_form_fields($defaults) {
+        $defaults['comment_field'] = '<h4 style="margin-bottom: 10px;">Your Comment :</h4>' .
+            sprintf(
+                '<p class="comment-form-comment">%s</p>',
+                '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>'
+            );
+        $defaults['logged_in_as'] = '';
+        return $defaults;
+    }
+    public function modify_archive_title($title) {
+        $title = str_replace(':', '  &nbsp;<i class="fa fa-angle-right"></i>', $title);
+        $title = '<span>' . $title . '</span>';
+        return $title;
     }
 }

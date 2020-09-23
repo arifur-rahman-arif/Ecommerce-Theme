@@ -52,6 +52,15 @@ class Theme_Support {
             'before_title'  => '<div class="section-title"><h4 class="widgettitle">',
             'after_title'   => '</h4></div>',
         ));
+        register_sidebar(array(
+            'name'          => __('Blog Page Sidebar', 'OS'),
+            'id'            => 'blog-sidebar',
+            'description'   => __('This is a blog sidebar area. Anything is here will be outputted in shop page sidebar', 'textdomain'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s blog__sidebar__item">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<div class="section-title"><h4 class="widgettitle">',
+            'after_title'   => '</h4></div>',
+        ));
     }
     public function including_other_func() {
         new \OS\Includes\Classes\Admin_Nav_Menu;

@@ -61,16 +61,16 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() . '/Asset/Images/logo.png' ?>" alt=""></a>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                         cilisis.</p>
                     <div class="footer__payment">
-                        <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
-                        <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
-                        <a href="#"><img src="img/payment/payment-3.png" alt=""></a>
-                        <a href="#"><img src="img/payment/payment-4.png" alt=""></a>
-                        <a href="#"><img src="img/payment/payment-5.png" alt=""></a>
+                        <a href="#"><img src="<?php echo get_template_directory_uri() . '/Asset/Images/payment/payment-1.png' ?>" alt=""></a>
+                        <a href="#"><img src="<?php echo get_template_directory_uri() . '/Asset/Images/payment/payment-2.png' ?>" alt=""></a>
+                        <a href="#"><img src="<?php echo get_template_directory_uri() . '/Asset/Images/payment/payment-3.png' ?>" alt=""></a>
+                        <a href="#"><img src="<?php echo get_template_directory_uri() . '/Asset/Images/payment/payment-4.png' ?>" alt=""></a>
+                        <a href="#"><img src="<?php echo get_template_directory_uri() . '/Asset/Images/payment/payment-5.png' ?>" alt=""></a>
                     </div>
                 </div>
             </div>

@@ -17,8 +17,8 @@ get_header('header.php') ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb__links">
-                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                    <span><?php do_action('os_breadcumb') ?></span>
+                    <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i> Home</a>
+                    <?php do_action('os_breadcumb') ?>
                 </div>
             </div>
         </div>
