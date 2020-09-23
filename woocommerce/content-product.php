@@ -44,9 +44,3 @@ if (empty($product) || false === wc_get_loop_product_visibility($product->get_id
 		</div>
 	</div>
 </div>
-<!-- <pre>
-	<?php if ($product->get_type() == 'variable') : ?>
-	<?php $a = new WC_Product_Variable() ?>
-	<?php print_r($a->add_to_cart_text()) ?>
-	<?php endif; ?>
-</pre> -->

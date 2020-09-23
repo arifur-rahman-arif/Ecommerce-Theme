@@ -1774,12 +1774,7 @@ ol {
 }
 
 .pro-qty .qtybtn {
-	font-size: 14px;
-	color: #666666;
-	cursor: pointer;
-	float: left;
-	width: 12px;
-	line-height: 46px;
+	display: none;
 }
 
 .pro-qty input {
@@ -1798,19 +1793,6 @@ ol {
 	margin-bottom: 25px;
 }
 
-.product__details__button .cart-btn {
-	display: inline-block;
-	font-size: 14px;
-	color: #ffffff;
-	background: #ca1515;
-	font-weight: 600;
-	text-transform: uppercase;
-	padding: 14px 30px 15px;
-	border-radius: 50px;
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 10px;
-}
 
 .product__details__button ul {
 	float: left;
@@ -3777,18 +3759,6 @@ ol {
 	padding: 10px;
 }
 
-.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
-   	padding: 9px 17px;
-	margin-left: 15px;
-	background-color: unset;
-	border: 2px solid #ca1515;
-	color:  #ca1515;
-	cursor: pointer;
-}
-.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
-    background-color: #ca1515;
-    color: #fff;
-}
 .woocommerce div.product p.price, .woocommerce div.product span.price {
     color: #ca1515;
 }
@@ -3866,3 +3836,53 @@ html {
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
  }
+ .woocommerce div.product div.images.woocommerce-product-gallery {
+    position: relative;
+    width: 430px;
+}
+.product__details__text .rating {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+.woocommerce .star-rating {
+    font-size: 12px;
+    color: #e3c01c;
+    margin-right: 10px;
+}
+.woocommerce-review-link {
+	font-size: 12px;
+    color: #666666;
+    margin-left: 5px;
+}
+.woocommerce div.product form.cart div.quantity {
+   all: initial;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.woocommerce .quantity .qty {
+	  all: initial;
+	  font-size: 14px;
+    color: #666666;
+    font-weight: bolder;
+    border: none;
+    float: left;
+    width: 84px;
+    text-align: center;
+    height: 48px;
+}
+.woocommerce div.product form.cart .button {
+    display: inline-block;
+    font-size: 14px;
+    color: #ffffff;
+    background: #ca1515;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px 30px 15px;
+    border-radius: 50px;
+    float: left;
+    margin-right: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product title
  *
@@ -15,11 +16,11 @@
  * @version 4.4.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
 ?>
-<h1 class="product_title entry-title">
-	<?php echo esc_html( get_the_title() ); ?>
-</h1>
+<h3 class="product_title entry-title">
+	<?php echo esc_html(get_the_title()); ?>
+</h3>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Price
  *
@@ -15,11 +16,11 @@
  * @version 3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
 global $product;
 
 ?>
-<p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo $product->get_price_html(); ?></p>
+<div class="product__details__price"><?php do_action('os_product_price', $product) ?></div>
