@@ -33,6 +33,7 @@ if (post_password_required()) {
 }
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('row', $product); ?>>
+
 	<div class="col-lg-6">
 		<?php
 		/**
@@ -73,65 +74,22 @@ if (post_password_required()) {
 							</label>
 						</div>
 					</li>
-					<li>
-						<span>Available color:</span>
-						<div class="color__checkbox">
-							<label for="blue">
-								<input type="radio" name="color__radio" id="red" checked="">
-								<span style="background-color: blue;" class="checkmark"></span>
-							</label>
-							<label for="black">
-								<input type="radio" name="color__radio" id="black">
-								<span class="checkmark black-bg"></span>
-							</label>
-							<label for="grey">
-								<input type="radio" name="color__radio" id="grey">
-								<span class="checkmark grey-bg"></span>
-							</label>
-						</div>
-					</li>
-					<li>
-						<span>Available size:</span>
-						<div class="size__btn">
-							<label for="xs-btn" class="active">
-								<input type="radio" id="xs-btn">
-								xs
-							</label>
-							<label for="s-btn">
-								<input type="radio" id="s-btn">
-								s
-							</label>
-							<label for="m-btn">
-								<input type="radio" id="m-btn">
-								m
-							</label>
-							<label for="l-btn">
-								<input type="radio" id="l-btn">
-								l
-							</label>
-						</div>
-					</li>
-					<li>
-						<span>Promotions:</span>
-						<p>Free shipping</p>
-					</li>
+					<?php do_action('os_available_attribute', $product) ?>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="col-lg-12">
-		<div class="product__details__tab">
-			<?php
-			/**
-			 * Hook: woocommerce_after_single_product_summary.
-			 *
-			 * @hooked woocommerce_output_product_data_tabs - 10
-			 * @hooked woocommerce_upsell_display - 15
-			 * @hooked woocommerce_output_related_products - 20
-			 */
-			do_action('woocommerce_after_single_product_summary');
-			?>
-		</div>
+		<?php
+		/**
+		 * Hook: woocommerce_after_single_product_summary.
+		 *
+		 * @hooked woocommerce_output_product_data_tabs - 10
+		 * @hooked woocommerce_upsell_display - 15
+		 * @hooked woocommerce_output_related_products - 20
+		 */
+		do_action('woocommerce_after_single_product_summary');
+		?>
 	</div>
 </div>
 <?php do_action('woocommerce_after_single_product'); ?>

@@ -19,7 +19,7 @@ class Enqueue_Files {
         wp_enqueue_style('OS_magnific_popup', get_template_directory_uri() .  '/Asset/Css/magnific-popup.css', [], OS_Version, 'all');
         wp_enqueue_style('OS_owl_carosoul', get_template_directory_uri() .  '/Asset/Css/owl.carousel.min.css', [], OS_Version, 'all');
         wp_enqueue_style('OS_slick_nav', get_template_directory_uri() .  '/Asset/Css/slicknav.min.css', [], OS_Version, 'all');
-        wp_enqueue_style('OS_css', get_template_directory_uri() .  '/Asset/Css/style.css', [], OS_Version, 'all');
+        wp_enqueue_style('OS_css', get_template_directory_uri() .  '/Asset/Css/style.css', [], '' . microtime() . '', 'all');
 
         /* Theme Javascript */
         // wp_enqueue_script('OS_jquery', '//code.jquery.com/jquery-3.5.1.min.js', [], OS_Version, true);

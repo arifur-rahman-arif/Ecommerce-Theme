@@ -45,7 +45,7 @@ get_header('header.php') ?>
                                         <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
-                                        <h6><a href="#"><?php echo get_the_title() ?></a></h6>
+                                        <h6><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h6>
                                         <ul>
                                             <li>by <span><?php echo  get_the_author() ?></span></li>
                                             <li><?php echo  get_the_date('M d, Y') ?></li>
@@ -58,7 +58,7 @@ get_header('header.php') ?>
                                         <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
-                                        <h6><a href="#"><?php echo get_the_title() ?></a></h6>
+                                        <h6><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h6>
                                         <ul>
                                             <li>by <span><?php echo  get_the_author() ?></span></li>
                                             <li><?php echo  get_the_date('M d, Y') ?></li>
@@ -82,7 +82,7 @@ get_header('header.php') ?>
                                         <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
-                                        <h6><a href="#"><?php echo get_the_title() ?></a></h6>
+                                        <h6><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h6>
                                         <ul>
                                             <li>by <span><?php echo  get_the_author() ?></span></li>
                                             <li><?php echo  get_the_date('M d, Y') ?></li>
@@ -95,7 +95,7 @@ get_header('header.php') ?>
                                         <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
-                                        <h6><a href="#"><?php echo get_the_title() ?></a></h6>
+                                        <h6><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h6>
                                         <ul>
                                             <li>by <span><?php echo  get_the_author() ?></span></li>
                                             <li><?php echo  get_the_date('M d, Y') ?></li>
@@ -120,7 +120,7 @@ get_header('header.php') ?>
                                         <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
-                                        <h6><a href="#"><?php echo get_the_title() ?></a></h6>
+                                        <h6><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h6>
                                         <ul>
                                             <li>by <span><?php echo  get_the_author() ?></span></li>
                                             <li><?php echo  get_the_date('M d, Y') ?></li>
@@ -133,7 +133,7 @@ get_header('header.php') ?>
                                         <div onclick="window.location='<?php echo get_the_permalink() ?>'" class="blog__item__pic <?php echo $item_size ?> set-bg" data-setbg="<?php echo  get_the_post_thumbnail_url() ?>"></div>
                                     <?php } ?>
                                     <div class="blog__item__text">
-                                        <h6><a href="#"><?php echo get_the_title() ?></a></h6>
+                                        <h6><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h6>
                                         <ul>
                                             <li>by <span><?php echo  get_the_author() ?></span></li>
                                             <li><?php echo  get_the_date('M d, Y') ?></li>
