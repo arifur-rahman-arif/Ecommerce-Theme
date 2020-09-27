@@ -30,8 +30,8 @@ class OS_Function {
         /* Configuring theme support for this theme */
         new \OS\Includes\Hooks\Woocommerce\Woocommerce_Modifiying_Hooks;
 
-        /* Ajax add to cart button functionality */
-        new \OS\Includes\Backend\Ajax_Add_To_Cart;
+        /* OS theme custom functions */
+        new \OS\Includes\Functions\Custom\Custom_Functions;
     }
 }
 new OS_Function;

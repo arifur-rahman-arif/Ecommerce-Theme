@@ -2,9 +2,9 @@
 
 namespace OS\Includes\Hooks;
 
-use OS\Includes\Hooks\Hooked_Functions;
+use OS\Includes\Functions\Custom\Custom_Hooked_Functions;
 
-class Custom_Hook extends Hooked_Functions {
+class Custom_Hook extends Custom_Hooked_Functions {
     public function __construct() {
         /* Hook to display nav menu */
         add_action('os_nav_menu', [$this, 'nav_menu']);
@@ -34,5 +34,13 @@ class Custom_Hook extends Hooked_Functions {
         add_filter('get_the_archive_title', [__CLASS__, 'modify_archive_title']);
         /* Hook for displaying available color for product */
         add_action('os_available_attribute', [__CLASS__, 'available_attribute'], 10, 1);
+        /* Hook for displaying front page large item catagory data */
+        add_action('os_large_item', [__CLASS__, 'large_item']);
+        /* Hook for displaying front page catagory items data */
+        add_action('os_catagory_items', [__CLASS__, 'catagory_items']);
+        /* Hook for displaying front page catagory items data */
+        add_action('os_cat_filter_control', [__CLASS__, 'filter_control_by_cat']);
+        /* Hook for displaying front page catagory items data */
+        add_action('os_front_page_filtered_product', [__CLASS__, 'filtered_products']);
     }
 }

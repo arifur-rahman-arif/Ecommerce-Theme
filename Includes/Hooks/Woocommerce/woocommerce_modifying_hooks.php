@@ -2,7 +2,9 @@
 
 namespace OS\Includes\Hooks\Woocommerce;
 
-class Woocommerce_Modifiying_Hooks {
+use OS\Includes\Functions\WC_Modifying_Hooked_Functions;
+
+class Woocommerce_Modifiying_Hooks extends WC_Modifying_Hooked_Functions {
     public function __construct() {
         add_action('init', [$this, 'remove_hooks_and_filters']);
     }
@@ -28,36 +30,11 @@ class Woocommerce_Modifiying_Hooks {
         remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
     }
     public static function modify_filter_hooks() {
-        add_filter('woocommerce_show_page_title', [get_called_class(), 'woocommerce_show_page_title']);
-        add_filter('woocommerce_breadcrumb_defaults', [get_called_class(), 'woocommerce_breadcumb']);
-        add_filter('loop_shop_per_page', [get_called_class(), 'products_per_page'], 20);
+        add_filter('woocommerce_show_page_title', [__CLASS__, 'woocommerce_show_page_title']);
+        add_filter('woocommerce_breadcrumb_defaults', [__CLASS__, 'woocommerce_breadcumb']);
+        add_filter('loop_shop_per_page', [__CLASS__, 'products_per_page'], 20);
     }
     public static function modify_action_hooks() {
-        add_action('woocommerce_shop_loop_item_title', [get_called_class(), 'woocommerce_template_loop_product_title'], 10);
-    }
-    public static function woocommerce_template_loop_product_title() {
-        echo '<h6 class="' . esc_attr(apply_filters('woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title')) . '"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h6>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-    }
-    public static function woocommerce_show_page_title($val) {
-        $val = false;
-        return $val;
-    }
-    public static function woocommerce_breadcumb() {
-        return array(
-            'delimiter'   => '',
-            'wrap_before' => '<div class="breadcrumb-option">
-                                                <div class="container"><div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="breadcrumb__links" itemprop="breadcrumb">
-                                                            <i class="fa fa-home"></i>',
-            'wrap_after'  => '</div></div></div></div></div>',
-            'before'      => '',
-            'after'       => '',
-            'home'        => 'Home',
-        );
-    }
-    public static function products_per_page($products) {
-        $products = 9;
-        return $products;
+        add_action('woocommerce_shop_loop_item_title', [__CLASS__, 'woocommerce_template_loop_product_title'], 10);
     }
 }

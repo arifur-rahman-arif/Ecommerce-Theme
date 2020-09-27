@@ -1,11 +1,11 @@
 <?php
 
-namespace OS\Includes\Hooks;
+namespace OS\Includes\Functions\Custom;
 
 use OS\Includes\Classes\Nav_Walker_Class;
 use OS\Includes\Classes\Comment_Walker_Class;
 
-abstract class Hooked_Functions {
+class Custom_Hooked_Functions {
 
     public function product_label($product) {
         if ($product->get_sale_price()) {
@@ -249,5 +249,107 @@ abstract class Hooked_Functions {
                                 </label>';
         }
         return $labels;
+    }
+    public function large_item() {
+        global $os_functions;
+        $data = $os_functions->front_large_item_data();
+        echo '<div class="categories__item categories__large__item set-bg" data-setbg="' . $data['image_url'] . '">
+                    <div class="categories__text">
+                        <h1>' . esc_html($data['cat_name']) . '</h1>
+                        <p>' . esc_html($data['description']) . '</p>
+                        <a href="' . esc_url($data['cat_url']) . '">Shop now</a>
+                    </div>
+                </div>';
+    }
+    public function catagory_items() {
+        global $os_functions;
+        $data = $os_functions->categories__item();
+        if (!empty($data)) {
+            foreach ($data as $cat_item) {
+                echo '<div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                                <div class="categories__item set-bg" data-setbg="' . $cat_item['image_url'] . '">
+                                        <div class="categories__text">
+                                            <h4>' . esc_html($cat_item['cat_name']) . '</h4>
+                                            <p>' . esc_html($cat_item['total_post']) . ' items</p>
+                                            <a href="' . esc_url($cat_item['cat_url']) . '">Shop now</a>
+                                        </div>
+                                </div>
+                        </div>';
+            }
+        }
+    }
+    public function filter_control_by_cat() {
+        global $os_functions;
+        $data = $os_functions->categories__item(7);
+        if (!empty($data)) {
+            foreach ($data as $cat_item) {
+                echo '<li data-filter=".' . $cat_item['cat_slug'] . '">' . $cat_item['cat_name'] . '</li>';
+            }
+        }
+    }
+    public function filtered_products() {
+        global $os_functions;
+        $products = $os_functions->categories__item(7);
+        if (!empty($products)) {
+            $category_slug = [];
+            foreach ($products as $product) {
+                array_push($category_slug, $product['cat_slug']);
+            }
+            // print_r($category_slug);
+            self::get_products_by_filter_slug($category_slug);
+        }
+    }
+    public static function get_products_by_filter_slug(array $categories) {
+        $cat_products = self::category_query($categories);
+        if ($cat_products) {
+            foreach ($cat_products as $post_product) {
+                self::filtered_output_html($post_product);
+            }
+        }
+        wp_reset_postdata();
+    }
+    public static function category_query(array $categories) {
+        $product = get_posts(
+            [
+                'post_type' => 'product',
+                'posts_per_page' => -1,
+                'tax_query' => [
+                    [
+                        'taxonomy' => 'product_cat',
+                        'field' => 'slug',
+                        'terms' =>  $categories,
+                    ]
+                ]
+            ]
+        );
+        return $product;
+    }
+    public static function filtered_output_html(object $post_product) {
+        echo '<div id="' . $post_product->ID . '" class="col-lg-3 col-md-4 col-sm-6 mix ' . self::post_category_slug($post_product->ID) . '">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="' . get_the_post_thumbnail_url($post_product->ID) . '">
+                                <div class="label new">New</div>
+                                <ul class="product__hover">
+                                    <li><a href="img/product/product-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                    <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                                    <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">' . $post_product->post_title . '</a></h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                </div>';
+    }
+    public static function post_category_slug(int $post_id) {
+        return wp_get_post_terms($post_id, 'product_cat')[0]->slug;
     }
 }
