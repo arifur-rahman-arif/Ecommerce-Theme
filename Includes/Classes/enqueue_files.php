@@ -13,7 +13,7 @@ class Enqueue_Files {
 
         /*  Css Styles */
         wp_enqueue_style('OS_bootstrap', get_template_directory_uri() .  '/Asset/Css/bootstrap.min.css', [], OS_Version, 'all');
-        wp_enqueue_style('OS_fontawesome', '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', [], OS_Version, 'all');
+        wp_enqueue_style('OS_fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css', [], OS_Version, 'all');
         wp_enqueue_style('OS_elegant_icons', get_template_directory_uri() .  '/Asset/Css/elegant-icons.css', [], OS_Version, 'all');
         wp_enqueue_style('OS_jquery_ui', get_template_directory_uri() .  '/Asset/Css/jquery-ui.min.css', [], OS_Version, 'all');
         wp_enqueue_style('OS_magnific_popup', get_template_directory_uri() .  '/Asset/Css/magnific-popup.css', [], OS_Version, 'all');

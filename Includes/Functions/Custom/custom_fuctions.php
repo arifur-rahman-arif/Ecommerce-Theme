@@ -21,6 +21,11 @@ class Custom_Functions {
             }
         }
     }
+    /**
+     * @method is going to return a object of terms for product category
+     * @param int $total_cat defined how many numbers of category to return
+     * @return object $attachment_data
+     */
     public function categories__item($total_cat = 6) {
 
         $terms = get_terms('product_cat');
@@ -44,6 +49,36 @@ class Custom_Functions {
             }
         }
         return $attachment_data;
+    }
+    public function is_product_on_sale($post_id) {
+        $is_on_sale = get_post_meta($post_id, '_sale_price', true);
+        if ($is_on_sale) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function product_price($post_id) {
+        if (get_post_meta($post_id, '_sale_price', true)) {
+            return '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' . number_format(get_post_meta($post_id, '_sale_price', true), 2)  . ' <span>' . get_woocommerce_currency_symbol() . ' ' . number_format(get_post_meta($post_id, '_regular_price', true), 2) . '</span></div>';
+        } elseif ($this->product_type($post_id) == 'variable') {
+            return '<div class="product__price">
+                        ' . get_woocommerce_currency_symbol() . ' '
+                . min(get_post_meta($post_id)['_price']) . ' &#126; '
+                . get_woocommerce_currency_symbol() . ' '
+                . max(get_post_meta($post_id)['_price']) . '
+                    </div>';
+        } elseif ($this->product_type($post_id) == 'grouped') {
+            return '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' .  number_format(get_post_meta($post_id)['_price'][0], 2) . '</div>';
+        } else {
+            return '<div class="product__price">' . get_woocommerce_currency_symbol() . ' ' .  number_format(get_post_meta($post_id, '_regular_price', true), 2) . '</div>';
+        }
+    }
+    public function product_type($post_id) {
+        if (class_exists('WC_Product_Data_Store_CPT')) {
+            $product_class = new \WC_Product_Data_Store_CPT();
+            return $product_class->get_product_type($post_id);
+        }
     }
 }
 global $os_functions;

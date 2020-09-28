@@ -18,54 +18,29 @@
 <!-- Categories Section End -->
 
 <!-- Product Section Begin -->
-<!-- <pre> -->
 
-<!-- <?php global $os_functions;
-        // $product_tax = $os_functions->categories__item(7);
-
-        // $product = get_posts(
-        //     [
-        //         'post_type' => 'product',
-        //         'posts_per_page' => -1,
-        //         'tax_query' => [
-        //             [
-        //                 'taxonomy' => 'product_cat',
-        //                 'field' => 'slug',
-        //                 // 'terms' => '' . $term_slug . '',
-        //                 'terms' => 'clothing',
-        //             ]
-        //         ]
-        //     ]
-        // );
-        // print_r($product);
-        // $a = wp_get_post_terms(33, 'product_cat', array());
-        // print_r($a);
-        print_r(get_terms(array(
-            'taxonomy' => 'product_cat',
-            'child_of' => 16
-        )))
-        // do_action('os_front_page_filtered_product');
-        ?> -->
-<!-- </pre> -->
 <div class="container">
     <div class="row">
+
         <div class="col-lg-4 col-md-4">
             <div class="section-title">
                 <h4>New product</h4>
             </div>
         </div>
+
         <div class="col-lg-8 col-md-8">
             <ul class="filter__controls">
                 <li class="active" data-filter="*">All</li>
                 <?php do_action('os_cat_filter_control') ?>
             </ul>
         </div>
+
     </div>
+
     <div class="row property__gallery">
-
         <?php do_action('os_front_page_filtered_product') ?>
-
     </div>
+
 </div>
 </section>
 <!-- Product Section End -->
